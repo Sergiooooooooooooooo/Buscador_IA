@@ -1,0 +1,66 @@
+CREATE TABLE categoria (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE solucion_ia (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT NOT NULL,
+    categoria_id INT,
+    enlace VARCHAR(255),
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
+
+INSERT INTO categoria (nombre) VALUES
+('IA de Texto'),
+('IA de Generación de Imágenes'),
+('IA de Análisis de Datos'),
+('IA para Matemáticas');
+
+-- IA de Texto
+INSERT INTO solucion_ia (nombre, descripcion, categoria_id, enlace) VALUES
+('ChatGPT', 'Modelo de lenguaje de OpenAI para generar texto.', 1, 'https://openai.com/chatgpt/'),
+('Bard', 'Modelo de generación de texto de Google.', 1, 'https://gemini.google.com/'),
+('Jasper.ai', 'Plataforma de IA para la creación de contenido.', 1, 'https://jasper.ai/'),
+('Copy.ai', 'Herramienta de escritura impulsada por IA.', 1, 'https://copy.ai/'),
+('Rytr', 'Asistente de escritura basado en IA.', 1, 'https://rytr.me/'),
+('Hugging Face Transformers', 'Biblioteca de modelos de lenguaje.', 1, 'https://huggingface.co/transformers/'),
+('Claude', 'Modelo de lenguaje de Anthropic.', 1, 'https://anthropic.com/');
+
+-- IA de Generación de Imágenes
+INSERT INTO solucion_ia (nombre, descripcion, categoria_id, enlace) VALUES
+('Midjourney', 'Generador de imágenes basado en IA.', 2, 'https://midjourney.com/'),
+('Stable Diffusion', 'Modelo de difusión para generación de imágenes.', 2, 'https://stability.ai/stable-diffusion/'),
+('DALL-E 2', 'Modelo de OpenAI para generar imágenes a partir de texto.', 2, 'https://openai.com/dall-e-2/'),
+('Craiyon', 'Generador de imágenes a partir de texto.', 2, 'https://www.craiyon.com/'),
+('NightCafe Creator', 'Herramienta de creación de arte impulsada por IA.', 2, 'https://nightcafe.studio/'),
+('RunwayML', 'Plataforma de creación de contenido multimedia.', 2, 'https://runwayml.com/'),
+('Artbreeder', 'Plataforma para crear y mezclar imágenes.', 2, 'https://artbreeder.com/'),
+('VQGAN+CLIP', 'Modelo de generación de imágenes que requiere configuración técnica.', 2, 'https://www.example.com/vqgan-clip'); -- Reemplaza con un enlace válido
+
+-- IA de Análisis de Datos
+INSERT INTO solucion_ia (nombre, descripcion, categoria_id, enlace) VALUES
+('TensorFlow', 'Biblioteca de código abierto para aprendizaje automático.', 3, 'https://www.tensorflow.org/'),
+('PyTorch', 'Biblioteca de aprendizaje automático de código abierto.', 3, 'https://pytorch.org/'),
+('Scikit-learn', 'Biblioteca de aprendizaje automático en Python.', 3, 'https://scikit-learn.org/stable/'),
+('RapidMiner', 'Plataforma para análisis de datos y minería de datos.', 3, 'https://rapidminer.com/'),
+('H2O.ai', 'Plataforma de código abierto para análisis de datos.', 3, 'https://www.h2o.ai/'),
+('KNIME', 'Herramienta para el análisis de datos.', 3, 'https://www.knime.com/'),
+('DataRobot', 'Plataforma de análisis de datos automatizado.', 3, 'https://www.datarobot.com/'),
+('Alteryx', 'Herramienta de análisis de datos y preparación de datos.', 3, 'https://www.alteryx.com/'),
+('Orange', 'Plataforma de análisis de datos visual.', 3, 'https://orange.biolab.si/'),
+('Apache Spark', 'Motor de análisis de datos en tiempo real.', 3, 'https://spark.apache.org/');
+
+-- IA para Matemáticas
+INSERT INTO solucion_ia (nombre, descripcion, categoria_id, enlace) VALUES
+('Wolfram Alpha', 'Motor de conocimiento computacional.', 4, 'https://www.wolframalpha.com/'),
+('Symbolab', 'Calculadora de problemas matemáticos.', 4, 'https://www.symbolab.com/'),
+('Photomath', 'Aplicación para resolver problemas matemáticos usando la cámara.', 4, 'https://photomath.net/'),
+('Mathway', 'Calculadora de problemas matemáticos.', 4, 'https://www.mathway.com/'),
+('GeoGebra', 'Herramienta para matemáticas interactivas.', 4, 'https://www.geogebra.org/'),
+('SageMath', 'Sistema de álgebra computacional.', 4, 'https://www.sagemath.org/'),
+('Mathematica', 'Software de cálculo simbólico y numérico.', 4, 'https://www.wolfram.com/mathematica/'),
+('MATLAB', 'Entorno para cálculos matemáticos.', 4, 'https://www.mathworks.com/products/matlab.html'),
+('R', 'Lenguaje de programación para estadísticas.', 4, 'https://www.r-project.org/'),
+('Python (con bibliotecas como NumPy, SciPy)', 'Lenguaje de programación con potentes bibliotecas matemáticas.', 4, 'https://www.python.org/');
