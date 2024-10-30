@@ -1,29 +1,29 @@
 const express = require('express');
 const { Pool } = require('pg');
-const path = require('path'); // Importa el módulo path
+const path = require('path'); 
 const app = express();
-require('dotenv').config(); // Cargar variables de entorno (opcional, si usas dotenv)
+require('dotenv').config(); 
 
-// Middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public'))); // Ruta absoluta para mayor seguridad
 
-// Ruta para redirigir a la página principal
+app.use(express.static(path.join(__dirname, 'public'))); 
+
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'inicio.html')); // Usamos path.join para mayor compatibilidad
+    res.sendFile(path.join(__dirname, 'public', 'inicio.html')); 
 });
 
-// Configuración de la conexión a PostgreSQL
+
 const pool = new Pool({
-  user: process.env.DB_USER || 'postgres',       // Cambia esto o usa variables de entorno
+  user: process.env.DB_USER || 'postgres',      
   host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'ia_db',     // Cambia esto o usa variables de entorno
-  password: process.env.DB_PASSWORD || 'postgres',  // Cambia esto o usa variables de entorno
+  database: process.env.DB_NAME || 'ia_db',     
+  password: process.env.DB_PASSWORD || 'postgres',  
   port: process.env.DB_PORT || 5432,
 });
 
-// Endpoint para buscar soluciones de IA
+
 app.get('/soluciones', async (req, res) => {
-  const searchTerm = req.query.keyword ? req.query.keyword.trim() : ''; // Eliminar espacios innecesarios
+  const searchTerm = req.query.keyword ? req.query.keyword.trim() : ''; 
 
   if (!searchTerm) {
     return res.status(400).json({ error: 'Debe proporcionar un término de búsqueda.' });
@@ -41,8 +41,8 @@ app.get('/soluciones', async (req, res) => {
   }
 });
 
-// Inicializa el servidor
-const PORT = process.env.PORT || 3000; // Puerto configurable desde variables de entorno
+
+const PORT = process.env.PORT || 3000; 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });

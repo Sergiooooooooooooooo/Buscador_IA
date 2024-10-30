@@ -1,9 +1,9 @@
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
-// Función para realizar la búsqueda y mostrar los resultados
+
 async function search(searchTerm) {
-    searchResults.innerHTML = ''; // Limpiar resultados anteriores
+    searchResults.innerHTML = ''; 
 
     if (!searchTerm.trim()) {
         const li = document.createElement('li');
@@ -28,7 +28,7 @@ async function search(searchTerm) {
             li.innerHTML = `
                 <strong>${item.nombre}</strong><br>
                 <p>${item.descripcion}</p>
-                <a href="${item.enlace}" target="_blank">Ver más</a>
+                <a href="${item.enlace}" target="_blank">Sitio oficial</a>
             `;
             searchResults.appendChild(li);
         });
@@ -40,7 +40,7 @@ async function search(searchTerm) {
     }
 }
 
-// Escuchar el evento de tecla (keyup) para realizar la búsqueda
+
 searchInput.addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
         search(searchInput.value);
