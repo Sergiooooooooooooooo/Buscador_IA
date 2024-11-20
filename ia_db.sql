@@ -577,23 +577,3 @@ INSERT INTO descripcion_ampliada (solucion_id, descripcion_ampliada) VALUES
 (179, 'Drift utiliza IA en sus chatbots para interactuar con los clientes en tiempo real, proporcionando respuestas personalizadas y mejorando la experiencia del cliente en las campañas de marketing.'),
 (180, 'Albert es una plataforma autónoma que emplea IA para gestionar y optimizar campañas de marketing digital, realizando ajustes automáticamente para mejorar los resultados en tiempo real.');
 
-
-
-
--- En tabla solucion_ia
-DELETE FROM solucion_ia WHERE id IN (106, 92, 93, 94, 95);
-UPDATE solucion:ia where id in
--- En tabla descripcion_ampliada
-DELETE FROM descripcion_ampliada WHERE solucion_id IN (91, 92, 93, 94, 95);
-
-
-DELETE FROM descripcion_ampliada WHERE solucion_id = 160;
-DELETE FROM solucion_ia WHERE id = 160;
--- Verifica si el registro con id = 81 existe en solucion_ia
-SELECT * FROM solucion_ia;
-
-UPDATE solucion_ia
-SET categoria_id = 9
-WHERE categoria_id = 5
-AND nombre IN ('HubSpot', 'Mailchimp', 'Copy.ai', 'Scalenut', 'Semrush');
-
